@@ -4,7 +4,7 @@ import * as fs from 'fs'
  * External Requests
  */
 export const getTransactions = () => {
-  return JSON.parse(fs.readFileSync('./data/dude3.json'))
+  return JSON.parse(fs.readFileSync('./data/dude7.json'))
 }
 
 export const getState = () => {
