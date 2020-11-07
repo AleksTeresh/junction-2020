@@ -10,8 +10,10 @@ export const getTransactions = () => {
 export const getState = () => {
   return {
     income: 2000,
+    rewards: [],
+    achievements: [],
     goals: [
-      { type: 'LIMIT', category: 'Ravintolat_kahvilat', updates: [{ timestamp: 191231234, percentage: 0.05 }] },
+      { type: 'LIMITS', category: 'Ravintolat_kahvilat', updates: [{ timestamp: 191231234, percentage: 0.07 }] },
     ],
     now: 1604730272000
   }

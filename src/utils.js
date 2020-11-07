@@ -1,6 +1,12 @@
 /**
  * Utils
  */
+export const forEachKey = (obj, fn) => {
+  for (const key in obj) {
+    fn(key)
+  }
+}
+
 export const forEachProp = (obj, fn) => {
   for (const key in obj) {
     fn(obj[key])
