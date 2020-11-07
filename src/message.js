@@ -9,6 +9,7 @@ export function getAlertMessage(alertDate) {
     endTime,
     category,
     currentValue,
+    suggestedValue,
     boundary,
     type
   } = alertDate
@@ -22,6 +23,10 @@ export function getAlertMessage(alertDate) {
       return `Congrats! You've just received a new achievement! The challenge was: "${Reward.achievements[alertDate.name].definition}"`
     case 'REWARD':
       return `Congrats! You've just received a new reward! The challenge was: "${Reward.rewards[alertDate.name].definition}"`
+    case 'INCREASE':
+      return `You're doing really great! You've achieved your goal on ${categories[category].humanString} 3 months in a row. How about increasing the goal by ${Math.abs(suggestedValue - currentValue).toFixed(2)} to make it a bit more challengin?`
+    case 'DECREASE':
+      return `You're doing really great! You've achieved your goal on ${categories[category].humanString} 3 months in a row. How about lowering the goal number by ${Math.abs(suggestedValue - currentValue).toFixed(2)} to make it a bit more challengin?`
     default:
       throw new Error('Unknown type of alert')
   }

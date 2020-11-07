@@ -1,6 +1,11 @@
 {
-  "rewards": [],
-  "achievements": [],
+  "rewards": [
+    "CATEGORY_LIMIT_APPRENTICE_EATOUT"
+  ],
+  "achievements": [
+    "CATEGORY_LIMIT_APPRENTICE_EATOUT",
+    "CATEGORY_LIMIT_APPRENTICE_ENTERTAIMENT"
+  ],
   "goals": [
     {
       "type": "LIMIT",

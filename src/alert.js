@@ -1,5 +1,6 @@
 import dateFns from 'date-fns'
 const { startOfMonth, endOfMonth, differenceInHours } = dateFns
+import * as Reward from './reward.js'
 
 export const getAlertsData = (
   statistics,
@@ -46,6 +47,46 @@ export const getAlertsData = (
     })
     .filter(p => p !== undefined)
 
+  const goalChangeAlerts = goals
+    .map(goal => {
+      const category = goal.category
+      const monthCount = 3
+      const goalWasAchivedManyTimes = Reward.testBoundary(category, monthCount)(statistics, goals)
+
+      if (goalWasAchivedManyTimes) {
+        const currentGoalValue = goal.updates[goal.updates.length - 1].percentage * statistics.income
+
+        switch (goal.type) {
+          case 'LIMIT': {
+            const suggestedGoalValue = Math.max(
+              currentGoalValue * 0.8,
+              Math.max(0, currentGoalValue - 30)
+            )
+            return {
+              type: 'DECREASE',
+              category: category,
+              currentValue: currentGoalValue,
+              suggestedValue: suggestedGoalValue
+            }
+          }
+          case 'MINIMUM': {
+            const suggestedGoalValue = Math.max(
+              currentGoalValue * 1.1,
+              Math.max(0, currentGoalValue + 40)
+            )
+            return {
+              type: 'INCREASE',
+              category: category,
+              currentValue: currentGoalValue,
+              suggestedValue: suggestedGoalValue
+            }            
+          }
+          default:
+        }
+      }
+    })
+    .filter(p => p !== undefined)
+
   const achievementAlerts = achievementDelta.map(achievement => {
     return {
       type: 'ACHIEVEMENT',
@@ -60,5 +101,5 @@ export const getAlertsData = (
     }
   })
 
-  return [...goalAlerts, ...achievementAlerts, ...rewardAlerts]
+  return [...goalAlerts, ...achievementAlerts, ...rewardAlerts, ...goalChangeAlerts]
 }

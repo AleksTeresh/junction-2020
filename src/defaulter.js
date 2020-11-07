@@ -1,7 +1,7 @@
 import * as External from './external.js'
 import * as Transactions from './transactions.js'
 
-const now = Date.now() - 9999999999999999
+const now = Date.now() // - 9999999999999999
 const transactions = External.getTransactions()
 const income = Transactions.getAverageIncome(transactions)
 
