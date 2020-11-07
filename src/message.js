@@ -2,6 +2,7 @@ import dateFns from 'date-fns'
 const { differenceInCalendarDays } = dateFns
 import { categories } from './config.js'
 import * as Utils from './utils.js'
+import * as Reward from './reward.js'
 
 export function getAlertMessage(alertDate) {
   const {
@@ -14,9 +15,13 @@ export function getAlertMessage(alertDate) {
   const remainingDays = differenceInCalendarDays(new Date(endTime), new Date())
   switch (type) {
     case 'START':
-      return `You should really start spending money on ${categories[category].humanString}. You've only allocated ${currentValue.toFixed(2)}$ out of ${boundary.toFixed(2)} and you only have ${remainingDays} days to go!`
+      return `You should really start spending money on ${categories[category].humanString}. You've only allocated ${Math.abs(currentValue).toFixed(2)}$ out of ${Math.abs(boundary).toFixed(2)} and you only have ${remainingDays} days to go!`
     case 'STOP':
-      return `You should really stop spending money on ${categories[category].humanString}. You've already spent ${currentValue.toFixed(2)}$ out of ${boundary.toFixed(2)} and you still have ${remainingDays} days to go!`
+      return `You should really stop spending money on ${categories[category].humanString}. You've already spent ${Math.abs(currentValue).toFixed(2)}$ out of ${Math.abs(boundary).toFixed(2)} and you still have ${remainingDays} days to go!`
+    case 'ACHIEVEMENT':
+      return `Congrats! You've just received a new achievement! The challenge was: "${Reward.achievements[alertDate.name].definition}"`
+    case 'REWARD':
+      return `Congrats! You've just received a new reward! The challenge was: "${Reward.rewards[alertDate.name].definition}"`
     default:
       throw new Error('Unknown type of alert')
   }
@@ -26,9 +31,9 @@ function getSmallFailureSuggestionMessage(goal, boundary, ratio) {
   const categoryName = goal.category
   switch (goal.type) {
     case 'LIMIT': 
-      return `You've slightly missed your goal on ${categories[categoryName].humanString} last months. Just saving up ${((ratio - 1) * boundary).toFixed(2)} $ and you would achieve your goal!`
+      return `You've slightly missed your goal on ${categories[categoryName].humanString} last months. Just saving up ${Math.abs((ratio - 1) * boundary).toFixed(2)} $ and you would achieve your goal!`
     case 'MINIMUM':
-      return `You've slightly missed your goal on ${categories[categoryName].humanString} last months. Just allocate ${((ratio - 1) * boundary).toFixed(2)} $ more and you would have achieved your goal!`
+      return `You've slightly missed your goal on ${categories[categoryName].humanString} last months. Just allocate ${Math.abs((ratio - 1) * boundary).toFixed(2)} $ more and you would have achieved your goal!`
     default:
       throw new Error('Unknown type of a goal')
   }
@@ -38,9 +43,9 @@ function getBigFailureSuggestionMessage(goal, boundary, ratio) {
   const categoryName = goal.category
   switch (goal.type) {
     case 'LIMIT': 
-      return `You've seriously missed your goal on ${categories[categoryName].humanString} last month. Indeed, you've went ${((ratio - 1) * boundary).toFixed(2)} $ over your limit! YOu really need to get your act together next month`
+      return `You've seriously missed your goal on ${categories[categoryName].humanString} last month. Indeed, you've went ${Math.abs((ratio - 1) * boundary).toFixed(2)} $ over your limit! YOu really need to get your act together next month`
     case 'MINIMUM':
-      return `You've seriously missed your goal on ${categories[categoryName].humanString} last month. Indeed, you've came short of ${((ratio - 1) * boundary).toFixed(2)} $! You really need to get your act together next month`
+      return `You've seriously missed your goal on ${categories[categoryName].humanString} last month. Indeed, you've came short of ${Math.abs((ratio - 1) * boundary).toFixed(2)} $! You really need to get your act together next month`
     default:
       throw new Error('Unknown type of a goal')
   }

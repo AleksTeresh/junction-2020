@@ -35,7 +35,7 @@ const getPrevMonthsExpenditureByCategory = (transactions) => {
  */
 const getRewards = (statistics, state) => {
   const existingRewards = state.rewards
-  const newRewards =  Reward.rewards.filter(reward => !existingRewards.includes(reward.id)).filter(reward => reward.test(statistics, state.goals)).map(reward => reward.id)
+  const newRewards = Object.values(Reward.rewards).filter(reward => !existingRewards.includes(reward.id)).filter(reward => reward.test(statistics, state.goals)).map(reward => reward.id)
   return [
     ...existingRewards,
     ...newRewards
@@ -44,7 +44,7 @@ const getRewards = (statistics, state) => {
 
 const getAchievements = (statistics, state) => {
   const existingAchievements = state.achievements
-  const newAchievements = Reward.achievements.filter(achievement => !existingAchievements.includes(achievement.id)).filter(achievement => achievement.test(statistics, state.goals)).map(achievement => achievement.id)
+  const newAchievements = Object.values(Reward.achievements).filter(achievement => !existingAchievements.includes(achievement.id)).filter(achievement => achievement.test(statistics, state.goals)).map(achievement => achievement.id)
   return [
     ...existingAchievements,
     ...newAchievements

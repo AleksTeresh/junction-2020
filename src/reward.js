@@ -33,43 +33,78 @@ export function testBoundary(category, monthCount) {
   }
 }
 
-export const rewards = [
-  {
-    id: 'CATEGORY_LIMIT_MASTERY_EATOUT',
-    definition: 'Meet your Eating out limit goal for 3 consecutive months',
-    test: testBoundary('Ravintolat_kahvilat', 3)
+export const rewards = {
+  CATEGORY_LIMIT_APPRENTICE_EATOUT: {
+    id: 'CATEGORY_LIMIT_APPRENTICE_EATOUT',
+    definition: 'Meet your Eating out limit goal for 1 month',
+    test: testBoundary('Ravintolat_kahvilat', 1)
   },
-  {
-    id: 'CATEGORY_LIMIT_MASTERY_ENTERTAIMENT',
+  CATEGORY_LIMIT_JOURNEYMAN_ENTERTAIMENT: {
+    id: 'CATEGORY_LIMIT_JOURNEYMAN_ENTERTAIMENT',
     definition: 'Meet your Entertainment limit goal for 3 consecutive months',
     test: testBoundary('Kulttuuri_viihde', 3)
   },
-  {
+  CATEGORY_LIMIT_MASTERY_GROCERIES: {
     id: 'CATEGORY_LIMIT_MASTERY_GROCERIES',
-    definition: 'Meet your Groceries limit goal for 3 consecutive months',
-    test: testBoundary('Ruoka_paivittaistavarakauppa', 3)
+    definition: 'Meet your Groceries limit goal for 6 consecutive months',
+    test: testBoundary('Ruoka_paivittaistavarakauppa', 6)
   },
-  {
-    id: 'CATEGORY_MIMIMUM_MASTERY_INVESTMENT',
+  CATEGORY_MIMIMUM_APPRENTICE_INVESTMENT: {
+    id: 'CATEGORY_MIMIMUM_APPRENTICE_INVESTMENT',
+    definition: 'Meet your Investment alloccation goal for 1 month',
+    test: testBoundary('Saastot_sijoitukset', 1)
+  },
+  CATEGORY_MIMIMUM_JOURNEYMAN_INVESTMENT: {
+    id: 'CATEGORY_MIMIMUM_JOURNEYMAN_INVESTMENT',
     definition: 'Meet your Investment alloccation goal for 3 consecutive months',
     test: testBoundary('Saastot_sijoitukset', 3)
   }
-]
+}
 
-export const achievements = [
-  {
-    id: 'CATEGORY_LIMIT_MASTERY_EATOUT',
+export const achievements = {
+  CATEGORY_LIMIT_APPRENTICE_EATOUT: {
+    id: 'CATEGORY_LIMIT_APPRENTICE_EATOUT',
+    definition: 'Meet your Eating out limit goal for 1 month',
+    test: testBoundary('Ravintolat_kahvilat', 1)
+  },
+  CATEGORY_LIMIT_APPRENTICE_ENTERTAIMENT: {
+    id: 'CATEGORY_LIMIT_APPRENTICE_ENTERTAIMENT',
+    definition: 'Meet your Entertainment limit goal for 1 month',
+    test: testBoundary('Kulttuuri_viihde', 1)
+  },
+  CATEGORY_LIMIT_APPRENTICE_GROCERIES: {
+    id: 'CATEGORY_LIMIT_APPRENTICE_GROCERIES',
+    definition: 'Meet your Groceries limit goal for 1 month',
+    test: testBoundary('Ruoka_paivittaistavarakauppa', 1)
+  },
+  CATEGORY_LIMIT_JOURNEYMAN_EATOUT: {
+    id: 'CATEGORY_LIMIT_JOURNEYMAN_EATOUT',
     definition: 'Meet your Eating out limit goal for 3 consecutive months',
     test: testBoundary('Ravintolat_kahvilat', 3)
   },
-  {
-    id: 'CATEGORY_LIMIT_MASTERY_ENTERTAIMENT',
+  CATEGORY_LIMIT_JOURNEYMAN_ENTERTAIMENT: {
+    id: 'CATEGORY_LIMIT_JOURNEYMAN_ENTERTAIMENT',
     definition: 'Meet your Entertainment limit goal for 3 consecutive months',
     test: testBoundary('Kulttuuri_viihde', 3)
   },
-  {
-    id: 'CATEGORY_LIMIT_MASTERY_GROCERIES',
+  CATEGORY_LIMIT_JOURNEYMAN_GROCERIES: {
+    id: 'CATEGORY_LIMIT_JOURNEYMAN_GROCERIES',
     definition: 'Meet your Groceries limit goal for 3 consecutive months',
     test: testBoundary('Ruoka_paivittaistavarakauppa', 3)
-  }
-]
+  },
+  CATEGORY_LIMIT_MASTERY_EATOUT: {
+    id: 'CATEGORY_LIMIT_MASTERY_EATOUT',
+    definition: 'Meet your Eating out limit goal for 6 consecutive months',
+    test: testBoundary('Ravintolat_kahvilat', 6)
+  },
+  CATEGORY_LIMIT_MASTERY_ENTERTAIMENT: {
+    id: 'CATEGORY_LIMIT_MASTERY_ENTERTAIMENT',
+    definition: 'Meet your Entertainment limit goal for 6 consecutive months',
+    test: testBoundary('Kulttuuri_viihde', 6)
+  },
+  CATEGORY_LIMIT_MASTERY_GROCERIES: {
+    id: 'CATEGORY_LIMIT_MASTERY_GROCERIES',
+    definition: 'Meet your Groceries limit goal for 6 consecutive months',
+    test: testBoundary('Ruoka_paivittaistavarakauppa', 6)
+  },
+}

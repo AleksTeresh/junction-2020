@@ -7,7 +7,7 @@ export const getAlertsData = (
   rewardDelta,
   achievementDelta
 ) => {
-  const alerts = goals
+  const goalAlerts = goals
     .map(goal => {
       const category = goal.category
       const boundary = goal.updates[goal.updates.length - 1].percentage * statistics.income
@@ -46,5 +46,19 @@ export const getAlertsData = (
     })
     .filter(p => p !== undefined)
 
-  return alerts
+  const achievementAlerts = achievementDelta.map(achievement => {
+    return {
+      type: 'ACHIEVEMENT',
+      name: achievement
+    }
+  })
+
+  const rewardAlerts = rewardDelta.map(reward => {
+    return {
+      type: 'REWARD',
+      name: reward
+    }
+  })
+
+  return [...goalAlerts, ...achievementAlerts, ...rewardAlerts]
 }
