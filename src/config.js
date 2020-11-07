@@ -76,39 +76,3 @@ export const categories = {
     humanString: 'Insurence'
   },
 }
-
-export const rewards = [
-  {
-    id: 'CATEGORY_LIMIT_MASTERY_ENTERTAINMENT',
-    definition: 'Meet your Entertainment limit goal for 6 consecutive months',
-    test: (statistics) => true
-  },
-  {
-    id: 'CATEGORY_LIMIT_MASTERY_LIVING',
-    definition: 'Meet your Living limit goal for 6 consecutive months',
-    test: (statistics) => false
-  },
-  {
-    id: 'CATEGORY_LIMIT_MASTERY_GROCERIES',
-    definition: 'Meet your Groceries limit goal for 6 consecutive months',
-    test: (statistics) => true
-  }
-]
-
-export const achievements = [
-  {
-    id: 'CATEGORY_LIMIT_MASTERY_ENTERTAINMENT',
-    definition: 'Meet your Entertainment limit goal for 6 consecutive months',
-    test: (statistics) => true
-  },
-  {
-    id: 'CATEGORY_LIMIT_MASTERY_LIVING',
-    definition: 'Meet your Living limit goal for 6 consecutive months',
-    test: (statistics) => false
-  },
-  {
-    id: 'CATEGORY_LIMIT_MASTERY_GROCERIES',
-    definition: 'Meet your Groceries limit goal for 6 consecutive months',
-    test: (statistics) => true
-  }
-]

@@ -6,7 +6,7 @@ import * as External from './external.js'
 import * as Utils from './utils.js'
 import * as Config from './config.js'
 import * as Transactions from './transactions.js'
-
+import * as Reward from './reward.js'
 
 /**
  * Statistics Generation
@@ -29,12 +29,13 @@ const getPrevMonthsExpenditureByCategory = (transactions) => {
     ) 
 } 
 
+
 /**
  * Result Generation
  */
 const getRewards = (statistics, state) => {
   const existingRewards = state.rewards
-  const newRewards =  Config.rewards.filter(reward => !existingRewards.includes(reward.id)).filter(reward => reward.test(statistics)).map(reward => reward.id)
+  const newRewards =  Reward.rewards.filter(reward => !existingRewards.includes(reward.id)).filter(reward => reward.test(statistics, state.goals)).map(reward => reward.id)
   return [
     ...existingRewards,
     ...newRewards
@@ -43,7 +44,7 @@ const getRewards = (statistics, state) => {
 
 const getAchievements = (statistics, state) => {
   const existingAchievements = state.achievements
-  const newAchievements = Config.achievements.filter(achievement => !existingAchievements.includes(achievement.id)).filter(achievement => achievement.test(statistics)).map(achievement => achievement.id)
+  const newAchievements = Reward.achievements.filter(achievement => !existingAchievements.includes(achievement.id)).filter(achievement => achievement.test(statistics, state.goals)).map(achievement => achievement.id)
   return [
     ...existingAchievements,
     ...newAchievements
@@ -51,7 +52,9 @@ const getAchievements = (statistics, state) => {
 }
 
 const getMonthlyReport = (statistics) => {
-  return null
+  return {
+    thisMonthExpenditureByCategory: statistics.thisMonthExpenditureByCategory
+  }
 }
 
 const getAlerts = (statistics, state) => {
@@ -81,7 +84,7 @@ function main() {
     thisMonthExpenditureByCategory: getThisMonthExpenditureByCategory(transactions),
     prevMonthExpenditureByCategory: getPrevMonthsExpenditureByCategory(transactions),
   }
-  console.log('STATS', statistics)
+
   /**
    * Generate Result from Statistics
    */
