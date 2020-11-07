@@ -51,25 +51,43 @@ const getAchievements = (statistics, state) => {
   ]
 }
 
-const getMonthlyReport = (statistics) => {
+const getSuggestions = (statistics, state) => {
+  console.log(statistics)
+}
+
+const getGoalResults = (statistics, state) => {
+  return state.goals
+    .filter(g => g.type === 'LIMITS')
+    .reduce((acc, goal) => {
+      return {
+        ...acc,
+        [goal.category]: Utils.getCurrentValueToLimitRatio(
+          statistics.income,
+          goal,
+          statistics.thisMonthExpenditureByCategory
+        )
+      } 
+    }, {})
+}
+
+const getMonthlyReport = (statistics, state) => {
   return {
-    thisMonthExpenditureByCategory: statistics.thisMonthExpenditureByCategory
+    thisMonthExpenditureByCategory: statistics.thisMonthExpenditureByCategory,
+    suggestions: getSuggestions(statistics, state),
+    goals: getGoalResults(statistics, state)
   }
 }
 
 const getAlerts = (statistics, state) => {
   const alertsData = Alert.getAlertsData(statistics, state.goals)
-  return alertsData.map(alertData => ({
-    ...alertData,
-    message: Message.getAlertMessage(alertData)
-  }))
+  return alertsData.map(alertData => Message.getAlertMessage(alertData))
 }
 
 
 /**
  * Main Execution
  */
-function main() {
+function onTransaction() {
   /**
    * Get External Data
    */
@@ -80,7 +98,7 @@ function main() {
    * Generate Statistics from External Data
    */
   const statistics = {
-    income: Transactions.getAverageIncome(transactions),
+    income: Transactions.getAverageIncome(transactions), 
     thisMonthExpenditureByCategory: getThisMonthExpenditureByCategory(transactions),
     prevMonthExpenditureByCategory: getPrevMonthsExpenditureByCategory(transactions),
   }
@@ -91,9 +109,9 @@ function main() {
   return {
     rewards: getRewards(statistics, state),
     achievements: getAchievements(statistics, state),
-    reports: getMonthlyReport(statistics),
+    reports: getMonthlyReport(statistics, state),
     alerts: getAlerts(statistics, state),
   }
 }
 
-console.log(main())
+console.log(onTransaction())

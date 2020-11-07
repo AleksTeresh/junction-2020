@@ -4,3 +4,11 @@ const defaultState = {
 }
 
 console.log(defaultState)
+
+
+
+// import { getAverageIncome } from './transactions'
+
+// function getDefaults(transactions) {
+//   const income = getAverageIncome(transactions)
+// }

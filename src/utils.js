@@ -27,3 +27,9 @@ export const mapPropsToObject = (obj, fn) => {
   }
   return res
 }
+
+export const getCurrentValueToLimitRatio = (income, goal, spendingPerCategory) => {
+  const limit = goal.updates[goal.updates.length - 1].percentage * income
+  const currentValue = spendingPerCategory[goal.category]
+  return currentValue / limit
+}

@@ -1,5 +1,6 @@
 import dateFns from 'date-fns'
 const { differenceInMonths } = dateFns
+import * as Utils from './utils.js'
 
 export function testLimit(category, monthCount) {
   return (statistics, goals) => {
@@ -11,11 +12,13 @@ export function testLimit(category, monthCount) {
       return false
     }
 
-    const limit = lastLimitUpdate.percentage * statistics.income // in dollars
     const result = statistics.prevMonthExpenditureByCategory.slice(0, monthCount)
       .reduce((acc, prevMonthExpenditure) => {
-        const currentValue = prevMonthExpenditure[category]
-        const valueRatio = currentValue / limit
+       const valueRatio = Utils.getCurrentValueToLimitRatio(
+        statistics.income,
+        thisGoal,
+        prevMonthExpenditure
+      )
         return acc && valueRatio < 1.0
       }, true)
     return result
