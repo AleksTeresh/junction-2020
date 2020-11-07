@@ -1,13 +1,13 @@
 import dateFns from 'date-fns'
 const { startOfMonth, endOfMonth, differenceInHours } = dateFns
 
-export const getAlertsData = (stats, goals) => {
+export const getAlertsData = (statistics, goals) => { 
   const alerts = goals
     .filter(g => g.type === 'LIMITS')
     .map(g => {
       const category = g.category
-      const limit = g.updates[g.updates.length - 1].percentage * stats.income
-      const currentValue = stats['LIMITS'][category]['limit'] * stats.income
+      const limit = g.updates[g.updates.length - 1].percentage * statistics.income // in dollars
+      const currentValue = statistics.thisMonthExpenditureByCategory[category]
       const valueRatio = currentValue / limit
       const timeRatio = differenceInHours(endOfMonth(new Date()), new Date()) /
                         differenceInHours(endOfMonth(new Date()), startOfMonth(new Date()))
