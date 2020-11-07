@@ -29,7 +29,6 @@ const getPrevMonthsExpenditureByCategory = (transactions) => {
     ) 
 } 
 
-
 /**
  * Result Generation
  */
@@ -51,9 +50,6 @@ const getAchievements = (statistics, state) => {
   ]
 }
 
-const getSuggestions = (statistics, state) => {
-  console.log(statistics)
-}
 
 const getGoalResults = (statistics, state) => {
   return state.goals
@@ -71,10 +67,16 @@ const getGoalResults = (statistics, state) => {
 }
 
 const getMonthlyReport = (statistics, state) => {
+  const goalResults = getGoalResults(statistics, state)
+  const suggestions = Message.getSuggestionMesssages(
+    statistics,
+    state.goals,
+    goalResults
+  )
   return {
     thisMonthExpenditureByCategory: statistics.thisMonthExpenditureByCategory,
-    suggestions: getSuggestions(statistics, state),
-    goals: getGoalResults(statistics, state)
+    suggestions,
+    goals: goalResults
   }
 }
 

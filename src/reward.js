@@ -4,7 +4,7 @@ import * as Utils from './utils.js'
 
 export function testLimit(category, monthCount) {
   return (statistics, goals) => {
-    const thisGoal = goals.filter(g => g.type === 'LIMITS' && g.category === category)[0]
+    const thisGoal = Utils.findGoalByCategory(goals, category)
     if (!thisGoal) return false
 
     const lastLimitUpdate = thisGoal.updates[thisGoal.updates.length - 1]
