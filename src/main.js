@@ -1,39 +1,20 @@
 import * as Analyzers from './analyzers.js'
 import * as External from './external.js'
-
-
-// const forEachProp = (obj, fn) => {
-//   for (const key in obj) {
-//     fn(obj[key])
-//   }
-// }
-
-// const mapProp = (obj, fn) => {
-//   const arr = []
-//   forEachProp(obj, a => arr.push(a))
-//   return arr
-// }
-
+import * as Utils from './utils.js'
 
 /**
  * Main
  */
 const transactions = External.getTransactions()
 const state = External.getState()
-const analyzers = [
-  Analyzers.limit,
-  Analyzers.reward,
-]
+const analyzers = Utils.mapProp(Analyzers, a => a)
 
 function main() {
-  const result = {
-    limits: {},
-    rewards: {},
-  }
-  state.goals.forEach(goal => analyzers.forEach(analyzer => analyzer(result, transactions, state, goal)))
-  return result
+  const statistics = {}
+  state.goals.forEach(goal => analyzers.forEach(analyzer => {
+    statistics[analyzer.name] = analyzer(transactions, state, goal)
+  }))
+  return statistics
 }
-
-// console.log(mapProp(Analyzers))
 
 console.log(main())
