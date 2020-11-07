@@ -1,0 +1,47 @@
+{
+  "rewards": [],
+  "achievements": [],
+  "goals": [
+    {
+      "type": "LIMIT",
+      "category": "Asuminen",
+      "updates": [
+        {
+          "timestamp": -9998395238228718,
+          "percentage": 0.7902223158782005
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Ruoka_paivittaistavarakauppa",
+      "updates": [
+        {
+          "timestamp": -9998395238228718,
+          "percentage": 0.39511115793910023
+        }
+      ]
+    },
+    {
+      "type": "MINIMUM",
+      "category": "Saastot_sijoitukset",
+      "updates": [
+        {
+          "timestamp": -9998395238228718,
+          "percentage": -0.03170371931303342
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Ravintolat_kahvilat",
+      "updates": [
+        {
+          "timestamp": -9998395238228718,
+          "percentage": 0.13170371931303343
+        }
+      ]
+    }
+  ],
+  "now": -9998395238228718
+}

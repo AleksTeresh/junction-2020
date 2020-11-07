@@ -1,7 +1,8 @@
 import * as fs from 'fs'
 
-const PATH_TRANSACTIONS = process.argv[3]
-const PATH_STATE = process.argv[2]
+const userId = process.argv[2]
+const PATH_TRANSACTIONS = `./data/dude${userId}.json`
+const PATH_STATE = `./data/state${userId}.json`
 
 /**
  * External Requests

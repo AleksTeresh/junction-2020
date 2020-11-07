@@ -14,12 +14,20 @@ export function testLimit(category, monthCount) {
 
     const result = statistics.prevMonthExpenditureByCategory.slice(0, monthCount)
       .reduce((acc, prevMonthExpenditure) => {
-       const valueRatio = Utils.getCurrentValueToLimitRatio(
-        statistics.income,
-        thisGoal,
-        prevMonthExpenditure
-      )
-        return acc && valueRatio < 1.0
+       const valueRatio = Utils.getCurrentValueToBoundaryRatio(
+          statistics.income,
+          thisGoal,
+          prevMonthExpenditure
+        )
+
+        switch (thisGoal.type) {
+          case 'LIMIT': 
+            return acc && valueRatio < 1.0
+          case 'MINIMUM':
+            return acc && valueRatio >= 1.0
+          default:
+            return false
+        }
       }, true)
     return result
   }

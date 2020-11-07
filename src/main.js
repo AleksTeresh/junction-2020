@@ -53,11 +53,10 @@ const getAchievements = (statistics, state) => {
 
 const getGoalResults = (statistics, state) => {
   return state.goals
-    .filter(g => g.type === 'LIMITS')
     .reduce((acc, goal) => {
       return {
         ...acc,
-        [goal.category]: Utils.getCurrentValueToLimitRatio(
+        [goal.category]: Utils.getCurrentValueToBoundaryRatio(
           statistics.income,
           goal,
           statistics.thisMonthExpenditureByCategory
@@ -75,7 +74,7 @@ const getMonthlyReport = (statistics, state) => {
   )
   return {
     thisMonthExpenditureByCategory: statistics.thisMonthExpenditureByCategory,
-    suggestions,
+    suggestions: suggestions,
     goals: goalResults
   }
 }
@@ -108,12 +107,24 @@ function onTransaction() {
   /**
    * Generate Result from Statistics
    */
-  return {
+  const result = {
     rewards: getRewards(statistics, state),
     achievements: getAchievements(statistics, state),
     reports: getMonthlyReport(statistics, state),
     alerts: getAlerts(statistics, state),
   }
+
+  /**
+   * Set State
+   */
+  const newState = { 
+    ...state,
+    rewards: result.rewards,
+    achievements: result.achievements,
+  }
+  External.setState(newState)
+
+  return result
 }
 
 console.log(onTransaction())

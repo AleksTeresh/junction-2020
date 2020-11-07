@@ -1,0 +1,51 @@
+{
+  "rewards": [
+    "CATEGORY_LIMIT_MASTERY_EATOUT"
+  ],
+  "achievements": [
+    "CATEGORY_LIMIT_MASTERY_EATOUT"
+  ],
+  "goals": [
+    {
+      "type": "LIMIT",
+      "category": "Asuminen",
+      "updates": [
+        {
+          "timestamp": -9998395238230208,
+          "percentage": 1.354651534707301
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Ruoka_paivittaistavarakauppa",
+      "updates": [
+        {
+          "timestamp": -9998395238230208,
+          "percentage": 0.6773257673536505
+        }
+      ]
+    },
+    {
+      "type": "MINIMUM",
+      "category": "Saastot_sijoitukset",
+      "updates": [
+        {
+          "timestamp": -9998395238230208,
+          "percentage": -0.12577525578455018
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Ravintolat_kahvilat",
+      "updates": [
+        {
+          "timestamp": -9998395238230208,
+          "percentage": 0.22577525578455018
+        }
+      ]
+    }
+  ],
+  "now": -9998395238230208
+}

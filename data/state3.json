@@ -1,0 +1,57 @@
+{
+  "rewards": [],
+  "achievements": [],
+  "goals": [
+    {
+      "type": "LIMIT",
+      "category": "Asuminen",
+      "updates": [
+        {
+          "timestamp": -9998395238229888,
+          "percentage": 0.031309867075003
+        }
+      ]
+    },
+    {
+      "type": "MINIMUM",
+      "category": "Saastot_sijoitukset",
+      "updates": [
+        {
+          "timestamp": -9998395238229888,
+          "percentage": 0.39364223926499464
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Hyvinvointi",
+      "updates": [
+        {
+          "timestamp": -9998395238229888,
+          "percentage": 0.010019157464000962
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Harrastukset",
+      "updates": [
+        {
+          "timestamp": -9998395238229888,
+          "percentage": 0.010019157464000962
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Ravintolat_kahvilat",
+      "updates": [
+        {
+          "timestamp": -9998395238229888,
+          "percentage": 0.0125239468300012
+        }
+      ]
+    }
+  ],
+  "now": -9998395238229888
+}

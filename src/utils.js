@@ -30,10 +30,10 @@ export const mapPropsToObject = (obj, fn) => {
 
 export const findGoalByCategory = (goals, category) => {
   return goals
-    .filter(g => g.type === 'LIMITS' && g.category === category)[0]
+    .filter(g => g.category === category)[0]
 }
 
-export const getCurrentValueToLimitRatio = (income, goal, spendingPerCategory) => {
+export const getCurrentValueToBoundaryRatio = (income, goal, spendingPerCategory) => {
   const limit = goal.updates[goal.updates.length - 1].percentage * income
   const currentValue = spendingPerCategory[goal.category]
   return currentValue / limit

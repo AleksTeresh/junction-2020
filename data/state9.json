@@ -1,0 +1,95 @@
+{
+  "rewards": [
+    "CATEGORY_LIMIT_MASTERY_EATOUT",
+    "CATEGORY_LIMIT_MASTERY_ENTERTAIMENT",
+    "CATEGORY_LIMIT_MASTERY_GROCERIES"
+  ],
+  "achievements": [
+    "CATEGORY_LIMIT_MASTERY_EATOUT",
+    "CATEGORY_LIMIT_MASTERY_ENTERTAIMENT",
+    "CATEGORY_LIMIT_MASTERY_GROCERIES"
+  ],
+  "goals": [
+    {
+      "type": "LIMIT",
+      "category": "Asuminen",
+      "updates": [
+        {
+          "timestamp": -9998395238228946,
+          "percentage": 0.46059424333961535
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Ruoka_paivittaistavarakauppa",
+      "updates": [
+        {
+          "timestamp": -9998395238228946,
+          "percentage": 0.17272284125235574
+        }
+      ]
+    },
+    {
+      "type": "MINIMUM",
+      "category": "Saastot_sijoitukset",
+      "updates": [
+        {
+          "timestamp": -9998395238228946,
+          "percentage": -0.03787140208725959
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Liikkuminen",
+      "updates": [
+        {
+          "timestamp": -9998395238228946,
+          "percentage": 0.05757428041745192
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Kulttuuri_viihde",
+      "updates": [
+        {
+          "timestamp": -9998395238228946,
+          "percentage": 0.05757428041745192
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Hyvinvointi",
+      "updates": [
+        {
+          "timestamp": -9998395238228946,
+          "percentage": 0.05757428041745192
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Harrastukset",
+      "updates": [
+        {
+          "timestamp": -9998395238228946,
+          "percentage": 0.05757428041745192
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Ravintolat_kahvilat",
+      "updates": [
+        {
+          "timestamp": -9998395238228946,
+          "percentage": 0.11514856083490384
+        }
+      ]
+    }
+  ],
+  "now": -9998395238228946
+}

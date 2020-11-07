@@ -1,0 +1,93 @@
+{
+  "rewards": [
+    "CATEGORY_LIMIT_MASTERY_EATOUT",
+    "CATEGORY_LIMIT_MASTERY_ENTERTAIMENT"
+  ],
+  "achievements": [
+    "CATEGORY_LIMIT_MASTERY_EATOUT",
+    "CATEGORY_LIMIT_MASTERY_ENTERTAIMENT"
+  ],
+  "goals": [
+    {
+      "type": "LIMIT",
+      "category": "Asuminen",
+      "updates": [
+        {
+          "timestamp": -9998395238229736,
+          "percentage": 0.07644336540387325
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Ruoka_paivittaistavarakauppa",
+      "updates": [
+        {
+          "timestamp": -9998395238229736,
+          "percentage": 0.030577346161549303
+        }
+      ]
+    },
+    {
+      "type": "MINIMUM",
+      "category": "Saastot_sijoitukset",
+      "updates": [
+        {
+          "timestamp": -9998395238229736,
+          "percentage": 0.2082679615153521
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Liikkuminen",
+      "updates": [
+        {
+          "timestamp": -9998395238229736,
+          "percentage": 0.012230938464619721
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Kulttuuri_viihde",
+      "updates": [
+        {
+          "timestamp": -9998395238229736,
+          "percentage": 0.015288673080774652
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Hyvinvointi",
+      "updates": [
+        {
+          "timestamp": -9998395238229736,
+          "percentage": 0.021404142313084514
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Harrastukset",
+      "updates": [
+        {
+          "timestamp": -9998395238229736,
+          "percentage": 0.024461876929239443
+        }
+      ]
+    },
+    {
+      "type": "LIMIT",
+      "category": "Ravintolat_kahvilat",
+      "updates": [
+        {
+          "timestamp": -9998395238229736,
+          "percentage": 0.030577346161549303
+        }
+      ]
+    }
+  ],
+  "now": -9998395238229736
+}
