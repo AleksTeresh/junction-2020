@@ -29,6 +29,7 @@ const getPrevMonthsExpenditureByCategory = (transactions) => {
     ) 
 } 
 
+
 /**
  * Result Generation
  */
@@ -49,7 +50,6 @@ const getAchievements = (statistics, state) => {
     ...newAchievements
   ]
 }
-
 
 const getGoalResults = (statistics, state) => {
   return state.goals
@@ -79,8 +79,13 @@ const getMonthlyReport = (statistics, state) => {
   }
 }
 
-const getAlerts = (statistics, state) => {
-  const alertsData = Alert.getAlertsData(statistics, state.goals)
+const getAlerts = (statistics, state, rewardDelta, achievementDelta) => {
+  const alertsData = Alert.getAlertsData(
+    statistics,
+    state.goals,
+    rewardDelta,
+    achievementDelta
+  )
   return alertsData.map(alertData => Message.getAlertMessage(alertData))
 }
 
@@ -107,11 +112,18 @@ function onTransaction() {
   /**
    * Generate Result from Statistics
    */
+  const rewards = getRewards(statistics, state)
+  const achievements = getAchievements(statistics, state)
   const result = {
-    rewards: getRewards(statistics, state),
-    achievements: getAchievements(statistics, state),
+    rewards: rewards,
+    achievements: achievements,
     reports: getMonthlyReport(statistics, state),
-    alerts: getAlerts(statistics, state),
+    alerts: getAlerts(
+      statistics,
+      state, 
+      Utils.arrayDelta(state.rewards, rewards),
+      Utils.arrayDelta(state.achievements, achievements)
+    ),
   }
 
   /**

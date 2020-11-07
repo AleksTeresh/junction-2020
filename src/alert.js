@@ -1,7 +1,12 @@
 import dateFns from 'date-fns'
 const { startOfMonth, endOfMonth, differenceInHours } = dateFns
 
-export const getAlertsData = (statistics, goals) => { 
+export const getAlertsData = (
+  statistics,
+  goals,
+  rewardDelta,
+  achievementDelta
+) => {
   const alerts = goals
     .map(goal => {
       const category = goal.category

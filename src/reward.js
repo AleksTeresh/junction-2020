@@ -2,7 +2,7 @@ import dateFns from 'date-fns'
 const { differenceInMonths } = dateFns
 import * as Utils from './utils.js'
 
-export function testLimit(category, monthCount) {
+export function testBoundary(category, monthCount) {
   return (statistics, goals) => {
     const thisGoal = Utils.findGoalByCategory(goals, category)
     if (!thisGoal) return false
@@ -37,17 +37,22 @@ export const rewards = [
   {
     id: 'CATEGORY_LIMIT_MASTERY_EATOUT',
     definition: 'Meet your Eating out limit goal for 3 consecutive months',
-    test: testLimit('Ravintolat_kahvilat', 3)
+    test: testBoundary('Ravintolat_kahvilat', 3)
   },
   {
     id: 'CATEGORY_LIMIT_MASTERY_ENTERTAIMENT',
     definition: 'Meet your Entertainment limit goal for 3 consecutive months',
-    test: testLimit('Kulttuuri_viihde', 3)
+    test: testBoundary('Kulttuuri_viihde', 3)
   },
   {
     id: 'CATEGORY_LIMIT_MASTERY_GROCERIES',
     definition: 'Meet your Groceries limit goal for 3 consecutive months',
-    test: testLimit('Ruoka_paivittaistavarakauppa', 3)
+    test: testBoundary('Ruoka_paivittaistavarakauppa', 3)
+  },
+  {
+    id: 'CATEGORY_MIMIMUM_MASTERY_INVESTMENT',
+    definition: 'Meet your Investment alloccation goal for 3 consecutive months',
+    test: testBoundary('Saastot_sijoitukset', 3)
   }
 ]
 
@@ -55,16 +60,16 @@ export const achievements = [
   {
     id: 'CATEGORY_LIMIT_MASTERY_EATOUT',
     definition: 'Meet your Eating out limit goal for 3 consecutive months',
-    test: testLimit('Ravintolat_kahvilat', 3)
+    test: testBoundary('Ravintolat_kahvilat', 3)
   },
   {
     id: 'CATEGORY_LIMIT_MASTERY_ENTERTAIMENT',
     definition: 'Meet your Entertainment limit goal for 3 consecutive months',
-    test: testLimit('Kulttuuri_viihde', 3)
+    test: testBoundary('Kulttuuri_viihde', 3)
   },
   {
     id: 'CATEGORY_LIMIT_MASTERY_GROCERIES',
     definition: 'Meet your Groceries limit goal for 3 consecutive months',
-    test: testLimit('Ruoka_paivittaistavarakauppa', 3)
+    test: testBoundary('Ruoka_paivittaistavarakauppa', 3)
   }
 ]

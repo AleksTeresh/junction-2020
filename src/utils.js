@@ -38,3 +38,9 @@ export const getCurrentValueToBoundaryRatio = (income, goal, spendingPerCategory
   const currentValue = spendingPerCategory[goal.category]
   return currentValue / limit
 }
+
+export const arrayDelta = (arrA, arrB) => {
+  const arrAB = arrA.filter(e => !arrB.includes(e))
+  const arrBA = arrB.filter(e => !arrA.includes(e))
+  return arrAB.length > arrBA.length ? arrAB : arrBA
+}

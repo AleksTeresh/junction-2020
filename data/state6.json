@@ -1,6 +1,12 @@
 {
-  "rewards": [],
-  "achievements": [],
+  "rewards": [
+    "CATEGORY_LIMIT_MASTERY_EATOUT",
+    "CATEGORY_LIMIT_MASTERY_GROCERIES"
+  ],
+  "achievements": [
+    "CATEGORY_LIMIT_MASTERY_EATOUT",
+    "CATEGORY_LIMIT_MASTERY_GROCERIES"
+  ],
   "goals": [
     {
       "type": "LIMIT",
